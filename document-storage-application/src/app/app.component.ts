@@ -7,5 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Document Storage Application';
-  isUserLoggedIn: any;
+  isUserLoggedIn = false;
+  loginButtonLabel = 'Login';
+
+  constructor() {}
+
+  ngOnInit() {
+    let storeData = localStorage.getItem('isUserLoggedIn');
+
+    if (storeData != null && storeData == 'true') {
+      this.isUserLoggedIn = true;
+    } else this.isUserLoggedIn = false;
+  }
 }
