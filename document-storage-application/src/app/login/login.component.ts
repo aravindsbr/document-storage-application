@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     let isUserLoggedIn = this.authService.login(this.loginForm.value);
     if (isUserLoggedIn) {
-      this.router.navigate(['/events']);
-      window.location.href = '/events';
+      this.router.navigate(['/dashboard']);
+      window.location.href = '/dashboard';
     }
     if (!isUserLoggedIn) {
       this.error = 'Login failed. Please try again!';
