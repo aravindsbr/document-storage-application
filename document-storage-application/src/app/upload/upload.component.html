@@ -13,11 +13,14 @@
     </button>
   </div>
   <div
-    *ngIf="fileDetails && isUploadSuccess"
-    class="alert alert-success mt-3"
+    *ngIf="isFileTypePDF === false"
+    class="alert alert-danger mt-3"
     role="alert"
   >
-    {{ fileDetails.name }} is uploaded successfully!
+    Please upload only PDF files
+  </div>
+  <div *ngIf="isUploadSuccess" class="alert alert-success mt-3" role="alert">
+    Uploaded successfully!
   </div>
   <div
     *ngIf="fileDetails && isUploadSuccess === false"

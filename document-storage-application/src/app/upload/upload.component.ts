@@ -13,6 +13,7 @@ export class UploadComponent {
   isUploadSuccess: boolean | undefined;
   @ViewChild('fileInput')
   fileElement!: ElementRef;
+  isFileTypePDF!: boolean;
 
   constructor(private storage: AngularFireStorage) {}
 
@@ -21,6 +22,10 @@ export class UploadComponent {
   }
 
   handleFileUpload(fileInfo: any) {
+    if (fileInfo.type.split('/')[1] !== 'pdf') {
+      this.isFileTypePDF = false;
+      return;
+    }
     const filePath = `${this.basePath}/${fileInfo.name}`;
     this.storage
       .upload(filePath, fileInfo)
@@ -32,5 +37,6 @@ export class UploadComponent {
         this.fileElement.nativeElement.value = '';
         this.isUploadSuccess = false;
       });
+    this.fileDetails = null;
   }
 }
