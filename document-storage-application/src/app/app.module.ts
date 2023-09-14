@@ -7,10 +7,26 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UploadComponent } from './upload/upload.component';
+import { environment } from '../environments/environment';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, LogoutComponent, DashboardComponent, UploadComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    LogoutComponent,
+    DashboardComponent,
+    UploadComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebase),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

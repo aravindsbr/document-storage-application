@@ -1,9 +1,9 @@
 <div class="upload-container">
-  <div class="pb-3">
+  <div>
     <input type="file" class="btn btn-primary" (change)="setFileInfo($event)" />
   </div>
-  <div *ngIf="fileDetails">
-    <button class="btn btn-primary" (click)="handleFileUpload()">
+  <div *ngIf="fileDetails" class="pt-3">
+    <button class="btn btn-primary" (click)="handleFileUpload(fileDetails)">
       Upload file
     </button>
   </div>

@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "document-storage-application",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "document-storage-application": {
+      "hosting": {
+        "document-storage-application": [
+          "document-storage-application"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "document-storage-application"
+  }
+}
