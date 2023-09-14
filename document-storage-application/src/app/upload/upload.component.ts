@@ -8,6 +8,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 })
 export class UploadComponent {
   fileDetails: any;
+  filesList: any = [];
   basePath: string = '/uploads';
 
   constructor(private storage: AngularFireStorage) {}
@@ -17,8 +18,13 @@ export class UploadComponent {
 
   handleFileUpload(fileInfo: any) {
     const filePath = `${this.basePath}/${fileInfo.name}`;
-    const storageRef = this.storage.ref(filePath);
-    const uploadTask = this.storage.upload(filePath, fileInfo);
-    // console.log(uploadTask);
+    this.storage
+      .upload(filePath, fileInfo)
+      .then(() => {
+        // add success/failure code
+      })
+      .catch((error) => {
+        // handle error
+      });
   }
 }
