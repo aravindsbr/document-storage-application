@@ -1,1 +1,18 @@
-<p>dashboard works!</p>
+<div class="container table-container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">File Name</th>
+        <th scope="col">Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let file of listOfFiles; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ file.name }}</td>
+        <td><button class="btn btn-primary">View details</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

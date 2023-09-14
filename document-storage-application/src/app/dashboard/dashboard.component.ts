@@ -7,6 +7,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  listOfFiles: Array<any> = [];
   constructor(private storage: AngularFireStorage) {}
 
   ngOnInit(): void {
@@ -15,11 +16,11 @@ export class DashboardComponent implements OnInit {
       for (let i = 0; i < data.items.length; i++) {
         let newref = this.storage.ref('/uploads/' + data.items[i].name);
         newref.getMetadata().subscribe((data) => {
-          console.log('1', data);
+          this.listOfFiles[i] = data;
         });
-        newref.getDownloadURL().subscribe((data) => {
-          console.log('2', data);
-        });
+        // newref.getDownloadURL().subscribe((data) => {
+        //   console.log('2', data);
+        // });
       }
     });
   }
