@@ -10,8 +10,10 @@ export class UploadComponent {
   fileDetails: any;
   filesList: any = [];
   basePath: string = '/uploads';
+  isUploadSuccess: boolean | undefined;
 
   constructor(private storage: AngularFireStorage) {}
+
   setFileInfo(event: any) {
     this.fileDetails = event.target.files[0];
   }
@@ -21,11 +23,10 @@ export class UploadComponent {
     this.storage
       .upload(filePath, fileInfo)
       .then(() => {
-        // add success/failure code
-        alert('Upload success');
+        this.isUploadSuccess = true;
       })
       .catch((error) => {
-        // handle error
+        this.isUploadSuccess = false;
       });
   }
 }

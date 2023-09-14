@@ -7,4 +7,18 @@
       Upload file
     </button>
   </div>
+  <div
+    *ngIf="fileDetails && isUploadSuccess"
+    class="alert alert-success mt-3"
+    role="alert"
+  >
+    Upload is successful!
+  </div>
+  <div
+    *ngIf="fileDetails && !isUploadSuccess"
+    class="alert alert-danger mt-3"
+    role="alert"
+  >
+    Upload failed. Please try again.
+  </div>
 </div>
