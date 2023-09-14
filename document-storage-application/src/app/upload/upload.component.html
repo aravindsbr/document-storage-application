@@ -19,6 +19,13 @@
   >
     Please upload only PDF files
   </div>
+  <div
+    *ngIf="isFileSizeMoreThan50kb"
+    class="alert alert-danger mt-3"
+    role="alert"
+  >
+    Please upload PDF files less than 50 kB
+  </div>
   <div *ngIf="isUploadSuccess" class="alert alert-success mt-3" role="alert">
     Uploaded successfully!
   </div>

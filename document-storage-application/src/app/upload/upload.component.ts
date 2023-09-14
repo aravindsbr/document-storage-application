@@ -14,6 +14,7 @@ export class UploadComponent {
   @ViewChild('fileInput')
   fileElement!: ElementRef;
   isFileTypePDF!: boolean;
+  isFileSizeMoreThan50kb!: boolean;
 
   constructor(private storage: AngularFireStorage) {}
 
@@ -24,6 +25,10 @@ export class UploadComponent {
   handleFileUpload(fileInfo: any) {
     if (fileInfo.type.split('/')[1] !== 'pdf') {
       this.isFileTypePDF = false;
+      return;
+    }
+    if (fileInfo.size / 1024 > 50) {
+      this.isFileSizeMoreThan50kb = true;
       return;
     }
     const filePath = `${this.basePath}/${fileInfo.name}`;
@@ -38,5 +43,7 @@ export class UploadComponent {
         this.isUploadSuccess = false;
       });
     this.fileDetails = null;
+    this.isFileTypePDF = true;
+    this.isFileSizeMoreThan50kb = false;
   }
 }
