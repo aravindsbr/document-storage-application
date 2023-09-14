@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, LogoutComponent, DashboardComponent],
+  declarations: [AppComponent, LoginComponent, LogoutComponent, DashboardComponent, UploadComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
