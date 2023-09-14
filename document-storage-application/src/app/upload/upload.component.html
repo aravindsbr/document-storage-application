@@ -1,6 +1,11 @@
 <div class="upload-container">
   <div>
-    <input type="file" class="btn btn-primary" (change)="setFileInfo($event)" />
+    <input
+      #fileInput
+      type="file"
+      class="btn btn-primary"
+      (change)="setFileInfo($event)"
+    />
   </div>
   <div *ngIf="fileDetails" class="pt-3">
     <button class="btn btn-primary" (click)="handleFileUpload(fileDetails)">
@@ -12,10 +17,10 @@
     class="alert alert-success mt-3"
     role="alert"
   >
-    Upload is successful!
+    {{ fileDetails.name }} is uploaded successfully!
   </div>
   <div
-    *ngIf="fileDetails && !isUploadSuccess"
+    *ngIf="fileDetails && isUploadSuccess === false"
     class="alert alert-danger mt-3"
     role="alert"
   >

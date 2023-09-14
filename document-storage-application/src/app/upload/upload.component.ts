@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
@@ -11,6 +11,8 @@ export class UploadComponent {
   filesList: any = [];
   basePath: string = '/uploads';
   isUploadSuccess: boolean | undefined;
+  @ViewChild('fileInput')
+  fileElement!: ElementRef;
 
   constructor(private storage: AngularFireStorage) {}
 
@@ -24,8 +26,10 @@ export class UploadComponent {
       .upload(filePath, fileInfo)
       .then(() => {
         this.isUploadSuccess = true;
+        this.fileElement.nativeElement.value = '';
       })
-      .catch((error) => {
+      .catch(() => {
+        this.fileElement.nativeElement.value = '';
         this.isUploadSuccess = false;
       });
   }
