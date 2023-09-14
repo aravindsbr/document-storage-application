@@ -10,6 +10,7 @@ import { UploadComponent } from './upload/upload.component';
 import { environment } from '../environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireModule } from '@angular/fire/compat';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     LogoutComponent,
     DashboardComponent,
     UploadComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
