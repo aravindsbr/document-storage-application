@@ -22,6 +22,7 @@ export class UploadComponent {
       .upload(filePath, fileInfo)
       .then(() => {
         // add success/failure code
+        alert('Upload success');
       })
       .catch((error) => {
         // handle error

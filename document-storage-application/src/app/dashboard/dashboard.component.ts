@@ -11,26 +11,16 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     const ref = this.storage.ref('/uploads');
-    ref.listAll().subscribe((data) => {
-      let newref = this.storage.ref('/uploads/' + data.items[0].name);
-      let downloadableUrl = newref.getDownloadURL().subscribe((data) => {
-        console.log('1', data);
-      });
-      let metadata = newref.getMetadata().subscribe((data) => {
-        console.log('2', data);
-      });
-      // for (let i = 0; i < data.items.length; i++) {
-      //   let name = data.items[i].name;
-
-      //   let newref = this.storage.ref(data.items[i].name);
-      //   let url = newref.getDownloadURL().subscribe((data) => {
-      //     this.filesList.push({
-      //       name: name,
-      //       videolink: data,
-      //     });
-      //     console.log('file list', this.filesList);
-      //   });
-      // }
+    ref.listAll().subscribe((data: any) => {
+      for (let i = 0; i < data.items.length; i++) {
+        let newref = this.storage.ref('/uploads/' + data.items[i].name);
+        newref.getMetadata().subscribe((data) => {
+          console.log('1', data);
+        });
+        newref.getDownloadURL().subscribe((data) => {
+          console.log('2', data);
+        });
+      }
     });
   }
 }
