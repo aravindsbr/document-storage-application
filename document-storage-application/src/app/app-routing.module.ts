@@ -7,6 +7,7 @@ import { UploadComponent } from './upload/upload.component';
 import { DetailsComponent } from './details/details.component';
 import { RouteResolver } from './resolvers/route.resolver';
 import { DetailsResolver } from './resolvers/details.resolver';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,14 +18,21 @@ const routes: Routes = [
     resolve: {
       routeResolver: RouteResolver,
     },
+    canActivate: [AuthGuard],
   },
-  { path: 'upload', component: UploadComponent },
+  { path: 'upload', component: UploadComponent, canActivate: [AuthGuard] },
   {
     path: 'details/:name',
     component: DetailsComponent,
     resolve: {
       routeResolver: DetailsResolver,
     },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: '**',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
   },
 ];
 
