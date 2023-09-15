@@ -12,9 +12,8 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.actRoute.data.subscribe((data) => {
-      if (data['routeResolver']) {
-        this.fileInfo = data['routeResolver'];
-      }
+      if (data['routeResolver']) this.fileInfo = data['routeResolver'];
+      console.log(this.fileInfo);
     });
   }
 }
