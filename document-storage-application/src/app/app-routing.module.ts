@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UploadComponent } from './upload/upload.component';
 import { DetailsComponent } from './details/details.component';
 import { RouteResolver } from './resolvers/route.resolver';
+import { DetailsResolver } from './resolvers/details.resolver';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -18,7 +19,13 @@ const routes: Routes = [
     },
   },
   { path: 'upload', component: UploadComponent },
-  { path: 'details', component: DetailsComponent },
+  {
+    path: 'details/:name',
+    component: DetailsComponent,
+    resolve: {
+      routeResolver: DetailsResolver,
+    },
+  },
 ];
 
 @NgModule({
