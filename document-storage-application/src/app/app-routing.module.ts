@@ -10,6 +10,7 @@ import { DetailsResolver } from './resolvers/details.resolver';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
   {
@@ -31,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: DashboardComponent,
+    component: UploadComponent,
     canActivate: [AuthGuard],
   },
 ];
