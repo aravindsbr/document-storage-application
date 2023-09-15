@@ -1,4 +1,4 @@
-import { FileHandlingService } from '../file-handling.service';
+import { FileHandlingService } from '../services/file-handling.service';
 import {
   ActivatedRouteSnapshot,
   ResolveFn,

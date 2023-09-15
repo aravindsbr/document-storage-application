@@ -7,7 +7,7 @@ import { UploadComponent } from './upload/upload.component';
 import { DetailsComponent } from './details/details.component';
 import { RouteResolver } from './resolvers/route.resolver';
 import { DetailsResolver } from './resolvers/details.resolver';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
