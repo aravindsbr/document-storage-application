@@ -6,6 +6,8 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 })
 export class FileHandlingService {
   listOfFiles: Array<any> = [];
+  fileInfo: any;
+
   constructor(private storage: AngularFireStorage) {}
 
   getListOfFiles() {
@@ -27,7 +29,8 @@ export class FileHandlingService {
   getOneFileInfo(fileName: string) {
     const ref = this.storage.ref('/uploads/' + fileName);
     ref.getMetadata().subscribe((data) => {
-      return data;
+      this.fileInfo = data;
     });
+    return this.fileInfo;
   }
 }

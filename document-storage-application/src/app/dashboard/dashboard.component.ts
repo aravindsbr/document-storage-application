@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FileHandlingService } from './../file-handling.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,12 +8,7 @@ import { FileHandlingService } from './../file-handling.service';
 })
 export class DashboardComponent implements OnInit {
   listOfFiles: Array<any> = [];
-  constructor(
-    private storage: AngularFireStorage,
-    private actRoute: ActivatedRoute,
-    private fileHandlingService: FileHandlingService,
-    private route: Router
-  ) {}
+  constructor(private actRoute: ActivatedRoute, private route: Router) {}
 
   ngOnInit(): void {
     this.actRoute.data.subscribe((data) => {
