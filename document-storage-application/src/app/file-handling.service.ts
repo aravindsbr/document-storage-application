@@ -31,6 +31,9 @@ export class FileHandlingService {
     ref.getMetadata().subscribe((data) => {
       this.fileInfo = data;
     });
+    if (this.fileInfo === undefined) {
+      return;
+    }
     return this.fileInfo;
   }
 }
