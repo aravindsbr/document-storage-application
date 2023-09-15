@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { of } from 'rxjs';
-import { tap, delay } from 'rxjs/operators';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -11,7 +8,8 @@ export class AuthService {
 
   login(credentials: any) {
     this.isUserLoggedIn =
-      credentials.username === 'test' && credentials.password === 'test';
+      credentials.username === 'testuser' &&
+      credentials.password === 'testpassword';
     localStorage.setItem(
       'isUserLoggedIn',
       this.isUserLoggedIn ? 'true' : 'false'

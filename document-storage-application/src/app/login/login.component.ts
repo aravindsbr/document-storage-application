@@ -26,11 +26,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
-    // if (this.loginForm.invalid) {
-    //   return;
-    // }
-
     this.loading = true;
     let isUserLoggedIn = this.authService.login(this.loginForm.value);
     if (isUserLoggedIn) {
@@ -38,7 +33,7 @@ export class LoginComponent implements OnInit {
       window.location.href = '/dashboard';
     }
     if (!isUserLoggedIn) {
-      this.error = 'Login failed. Please try again!';
+      this.error = 'Invalid credentials. Please try again!';
       this.loading = false;
     }
   }
