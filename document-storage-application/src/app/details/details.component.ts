@@ -12,8 +12,17 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.actRoute.data.subscribe((data) => {
-      if (data['routeResolver']) this.fileInfo = data['routeResolver'];
-      console.log(this.fileInfo);
+      if (data['routeResolver']) {
+        this.fileInfo = data['routeResolver'];
+      }
     });
+  }
+
+  getFormattedFileSize(fileSize: any) {
+    return (fileSize / 1024).toFixed(2);
+  }
+
+  getFileType(contentType: string) {
+    return contentType.split('/')[1];
   }
 }

@@ -1,1 +1,38 @@
-<p>details works!</p>
+<div class="container table-container">
+  <table class="table table-hover" *ngIf="fileInfo">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Topic</th>
+        <th scope="col">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>File Name</td>
+        <td>{{ fileInfo.name }}</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>File Size</td>
+        <td>{{ getFormattedFileSize(fileInfo.size) }} kB</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>File Type</td>
+        <td>{{ getFileType(fileInfo.contentType) | uppercase }}</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Created Time</td>
+        <td>
+          <span>
+            {{ fileInfo.timeCreated | date : "shortTime" }},
+            {{ fileInfo.timeCreated | date : "fullDate" }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
