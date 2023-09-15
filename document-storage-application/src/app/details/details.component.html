@@ -1,5 +1,5 @@
 <div class="container table-container">
-  <table class="table table-hover" *ngIf="fileInfo">
+  <table class="table table-hover" *ngIf="fileInfo[0]">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -11,25 +11,25 @@
       <tr>
         <th scope="row">1</th>
         <td>File Name</td>
-        <td>{{ fileInfo.name }}</td>
+        <td>{{ fileInfo[0].name }}</td>
       </tr>
       <tr>
         <th scope="row">2</th>
         <td>File Size</td>
-        <td>{{ getFormattedFileSize(fileInfo.size) }} kB</td>
+        <td>{{ getFormattedFileSize(fileInfo[0].size) }} kB</td>
       </tr>
       <tr>
         <th scope="row">3</th>
         <td>File Type</td>
-        <td>{{ getFileType(fileInfo.contentType) | uppercase }}</td>
+        <td>{{ getFileType(fileInfo[0].contentType) | uppercase }}</td>
       </tr>
       <tr>
         <th scope="row">4</th>
         <td>Created Time</td>
         <td>
           <span>
-            {{ fileInfo.timeCreated | date : "shortTime" }},
-            {{ fileInfo.timeCreated | date : "fullDate" }}
+            {{ fileInfo[0].timeCreated | date : "shortTime" }},
+            {{ fileInfo[0].timeCreated | date : "fullDate" }}
           </span>
         </td>
       </tr>

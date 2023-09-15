@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
-  fileInfo: any = {};
+  fileInfo: Array<any> = [];
 
   constructor(private actRoute: ActivatedRoute) {}
 
