@@ -25,4 +25,8 @@ export class DetailsComponent implements OnInit {
   getFileType(contentType: string) {
     return contentType.split('/')[1];
   }
+
+  handleDownloadFile(url: string) {
+    window.open(url);
+  }
 }

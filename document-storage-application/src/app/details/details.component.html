@@ -1,4 +1,7 @@
 <div class="container table-container">
+  <div class="pb-3">
+    <h1 class="mr-3">Details of the file</h1>
+  </div>
   <table class="table table-hover" *ngIf="fileInfo[0]">
     <thead>
       <tr>
@@ -35,4 +38,10 @@
       </tr>
     </tbody>
   </table>
+  <button
+    class="btn btn-primary"
+    (click)="handleDownloadFile(fileInfo[0].downloadableURL)"
+  >
+    View file
+  </button>
 </div>

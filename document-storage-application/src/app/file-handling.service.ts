@@ -30,9 +30,13 @@ export class FileHandlingService {
     const ref = this.storage.ref('/uploads/' + fileName);
     ref.getMetadata().subscribe((data) => {
       if (!this.fileInfo.includes(data)) {
-        this.fileInfo[0] = data;
+        ref.getDownloadURL().subscribe((downloadableURL) => {
+          data['downloadableURL'] = downloadableURL;
+          this.fileInfo[0] = data;
+        });
       }
     });
+
     if (this.fileInfo === undefined) {
       return;
     }
