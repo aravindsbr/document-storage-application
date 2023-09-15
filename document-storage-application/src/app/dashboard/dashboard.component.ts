@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,20 +9,14 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 })
 export class DashboardComponent implements OnInit {
   listOfFiles: Array<any> = [];
-  constructor(private storage: AngularFireStorage) {}
+  constructor(
+    private storage: AngularFireStorage,
+    private actRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    const ref = this.storage.ref('/uploads');
-    ref.listAll().subscribe((data: any) => {
-      for (let i = 0; i < data.items.length; i++) {
-        let newref = this.storage.ref('/uploads/' + data.items[i].name);
-        newref.getMetadata().subscribe((data) => {
-          this.listOfFiles[i] = data;
-        });
-        // newref.getDownloadURL().subscribe((data) => {
-        //   console.log('2', data);
-        // });
-      }
+    this.actRoute.data.subscribe((data) => {
+      this.listOfFiles = data['routeResolver'];
     });
   }
 }
